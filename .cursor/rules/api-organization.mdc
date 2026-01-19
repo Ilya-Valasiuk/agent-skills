@@ -1,0 +1,204 @@
+---
+alwaysApply: false
+---
+
+# API Structure and Organization
+
+This rule defines how to structure and organize API modules in the project.
+
+## 1. Directory Structure
+
+```
+src/api/
+├── common/
+│   └── types.ts           # Shared types across all API modules
+├── [domain-name]/
+│   ├── module.ts          # API request functions
+│   ├── queries.ts         # React Query hooks
+│   └── types.ts           # Type definitions
+```
+
+## 2. Common Types (src/api/common/types.ts)
+
+Shared types that can be reused across all API modules.
+
+```typescript
+export type ResponseData<T, U = object> = {
+  data: T;
+  meta: U;
+};
+
+export type Pagination = {
+  page: number;
+  pageCount: number;
+  pageSize: number;
+  total: number;
+};
+```
+
+## 3. File Structure (src/api/[domain-name])
+
+### module.ts
+
+HTTP request functions that interact with API endpoints.
+
+**Naming conventions by HTTP method:**
+- **GET**: `fetch*` prefix (e.g., `fetchNewsById`, `fetchNewsList`)
+- **POST**: `create*` prefix (e.g., `createNews`, `createUser`)
+- **PUT/PATCH**: `update*` prefix (e.g., `updateNews`, `updateUserProfile`)
+- **DELETE**: `delete*` or `remove*` prefix (e.g., `deleteNews`, `removeUser`)
+
+**Pattern:**
+
+```typescript
+const BASE_URL = 'https://api.example.com';
+
+export const fetchNewsById = async (newsId: string) => {
+  const response = await fetch(`${BASE_URL}/news/${newsId}`);
+
+  if (response.ok) {
+    const data: NewsResponse = await response.json();
+    return data;
+  }
+
+  throw new Error("Failed to fetch news.");
+};
+
+export const createNews = async (newsPayload: CreateNewsPayload) => {
+  const response = await fetch(`${BASE_URL}/news`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newsPayload),
+  });
+
+  if (response.ok) {
+    const data: NewsResponse = await response.json();
+    return data;
+  }
+
+  throw new Error("Failed to create news.");
+};
+```
+
+### queries.ts
+
+React Query hooks and cache management.
+
+**Structure:**
+1. Private `QueryKeys` enum (SCREAMING_SNAKE_CASE, not exported)
+2. `use*` hooks for queries
+3. `use*` hooks for mutations
+4. `invalidate*` functions for cache invalidation
+5. `set*` or other cache manipulation functions
+
+**Pattern:**
+
+```typescript
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { queryClient } from '@/constants/query-client';
+import { fetchNewsById, createNews, updateNews, deleteNews } from './module';
+import type { NewsResponse, CreateNewsPayload } from './types';
+
+enum QueryKeys {
+  NEWS = 'news',
+  NEWS_LIST = 'news-list',
+}
+
+export const useNewsById = (newsId: string) =>
+  useQuery({
+    queryKey: [QueryKeys.NEWS, newsId],
+    queryFn: () => fetchNewsById(newsId),
+    retry: false,
+  });
+
+export const useCreateNews = () =>
+  useMutation({
+    mutationFn: createNews,
+    onSuccess: () => {
+      invalidateNewsList();
+    },
+  });
+
+export const useUpdateNews = () =>
+  useMutation({
+    mutationFn: ({ newsId, payload }: { newsId: string; payload: UpdateNewsPayload }) =>
+      updateNews(newsId, payload),
+  });
+
+export const invalidateNewsList = () =>
+  queryClient.invalidateQueries({ queryKey: [QueryKeys.NEWS_LIST] });
+
+export const setNewsData = (newsId: string, newsData: NewsResponse) => {
+  queryClient.setQueryData<NewsResponse | undefined>(
+    [QueryKeys.NEWS, newsId],
+    newsData,
+  );
+};
+```
+
+### types.ts
+
+TypeScript type definitions.
+
+**Naming:**
+- Response types: `*Response` (e.g., `NewsResponse`)
+- Request payloads: `*Payload` (e.g., `CreateNewsPayload`, `UpdateNewsPayload`)
+- Entities: Singular noun (e.g., `News`, `User`)
+
+**Pattern:**
+
+```typescript
+import type { ResponseData, PaginatedMeta } from '@/api/common/types';
+
+export type News = {
+  id: string;
+  title: string;
+  content: string;
+  publishedAt: string;
+};
+
+export type NewsResponse = ResponseData<News>;
+
+export type NewsListResponse = ResponseData<News[], PaginatedMeta>;
+
+export type CreateNewsPayload = {
+  title: string;
+  content: string;
+};
+```
+
+## 4. Common Patterns
+
+### Parameter Validation
+
+```typescript
+export const fetchNewsById = async (newsId: string | null) => {
+  if (!newsId) {
+    throw new Error('News ID is required');
+  }
+
+  const response = await fetch(`${BASE_URL}/news/${newsId}`);
+  // ...
+};
+```
+
+### Conditional Query
+
+```typescript
+import { useQuery, skipToken } from '@tanstack/react-query';
+
+export const useNewsById = (newsId: string, isSkipToken?: boolean) =>
+  useQuery({
+    queryKey: [QueryKeys.NEWS, newsId],
+    queryFn: isSkipToken ? skipToken : () => fetchNewsById(),
+  });
+
+or
+
+export const useNewsById = (newsId: string | null) =>
+  useQuery({
+    queryKey: [QueryKeys.NEWS, newsId],
+    queryFn: () => fetchNewsById(newsId),
+    enabled: !!newsId,
+  });
+```
