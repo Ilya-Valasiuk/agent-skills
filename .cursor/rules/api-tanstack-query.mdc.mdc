@@ -1,10 +1,10 @@
 ---
+description: "This rule defines how to structure and organize API modules using TanStack Query (React Query)"
 alwaysApply: false
 ---
+# API Modules with TanStack Query
 
-# API Structure and Organization
-
-This rule defines how to structure and organize API modules in the project.
+This rule defines how to structure and organize API modules using TanStack Query (React Query)
 
 ## 1. Directory Structure
 
@@ -14,7 +14,7 @@ src/api/
 │   └── types.ts           # Shared types across all API modules
 ├── [domain-name]/
 │   ├── module.ts          # API request functions
-│   ├── queries.ts         # React Query hooks
+│   ├── queries.ts         # TanStack Query hooks
 │   └── types.ts           # Type definitions
 ```
 
@@ -82,7 +82,7 @@ export const createNews = async (newsPayload: CreateNewsPayload) => {
 
 ### queries.ts
 
-React Query hooks and cache management.
+TanStack Query hooks and cache management.
 
 **Structure:**
 1. Private `QueryKeys` enum (SCREAMING_SNAKE_CASE, not exported)
