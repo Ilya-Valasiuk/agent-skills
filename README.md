@@ -6,9 +6,14 @@ Shared Cursor configurations to standardize AI-assisted development workflows.
 
 ```
 .cursor/
-├── rules/          # Project-level rules for code standards and patterns
-├── commands/       # Custom commands for common workflows (coming soon)
-└── skills/         # Agent skills for specialized capabilities (coming soon)
+├── rules/          # Always-on constraints and standards
+├── commands/       # Reusable team prompts (coming soon)
+├── skills/         # Optional specialized workflows (coming soon)
+├── hooks.json      # Lifecycle hooks configuration (coming soon)
+└── mcp.json        # MCP server configuration (coming soon)
+
+.cursorignore      # Exclusions from indexing (coming soon)
+instructions.md    # Project context (coming soon)
 ```
 
 ## Quick Links
