@@ -17,7 +17,7 @@ src/api/
 │   ├── module.ts          # API request functions (fetchers)
 │   ├── types.ts           # Domain type definitions
 │   ├── constants.ts       # Domain constants (optional)
-│   └── helpers.ts         # Data helpers (optional)
+│   └── helpers.ts         # Domain helpers (optional)
 └── index.ts               # Optional re-exports
 ```
 
@@ -39,7 +39,9 @@ export type Pagination = {
 };
 ```
 
-## 3. File Structure (src/api/[domain-name])
+## 3. Domain-Specific File Structure (src/api/[domain-name])
+
+Each domain has its own folder, containing only the API logic, types, and helpers relevant to that domain.
 
 ### module.ts
 
