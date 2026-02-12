@@ -4,8 +4,12 @@ alwaysApply: false
 ---
 # TanStack Query Implementation
 
-> **Required Context**:
-> - @api-organization.mdc — base API structure, fetchers, types. Read before proceeding.
+## Requirements
+- SKIP this rule entirely if `@tanstack/react-query` is not installed
+- DO NOT install `@tanstack/react-query` if it is not present
+
+## Required Context
+- `@api-organization.mdc` — base API structure, fetchers, types. Read before proceeding.
 
 This rule defines how to use TanStack Query for data fetching, mutations, and cache management in API modules.
 
