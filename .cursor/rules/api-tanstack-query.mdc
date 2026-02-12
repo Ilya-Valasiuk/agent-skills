@@ -4,6 +4,9 @@ alwaysApply: false
 ---
 # TanStack Query Implementation
 
+> **Required Context**:
+> - @api-organization.mdc — base API structure, fetchers, types. Read before proceeding.
+
 This rule defines how to use TanStack Query for data fetching, mutations, and cache management in API modules.
 
 ## 1. Directory Structure
