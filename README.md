@@ -5,7 +5,7 @@ Shared Cursor configurations for Next.js App Router projects to standardize AI-a
 ## Repository Structure
 
 ```
-.cursor/
+cursor/
 ├── rules/          # Always-on constraints and standards
 ├── commands/       # Reusable team prompts (coming soon)
 ├── skills/         # Optional specialized workflows (coming soon)
