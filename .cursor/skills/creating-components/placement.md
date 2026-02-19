@@ -42,10 +42,3 @@ The page file exports `[RouteNamePage]` as a named export. Keep logic out of pag
 src/app/[locale]/about-us/page.tsx   →  exports AboutUsPage
 src/components/about-us/AboutUs.tsx  →  main page component
 ```
-
-```tsx
-// src/app/[locale]/about-us/page.tsx
-export const AboutUsPage: React.FC = () => (
-  <AboutUs />
-);
-```

@@ -35,14 +35,8 @@ See [folder-structures.md](folder-structures.md) for diagrams of each scenario.
 
 **Step 3: Create component file**
 
-Create a PascalCase `.tsx` file inside the folder. Follow these rules:
-
-- Named export only (no default exports)
-- Use `React.FC<Props>` or `React.FC` signature
-- Use implicit return `() => (...)` when the body is JSX-only
-- Define `type Props` with required props first, optional second, function props last
-
-For templates, see [examples.md](examples.md).
+Create a PascalCase `.tsx` file inside the folder.
+Follow the conventions in [reference.md](reference.md) and use [examples.md](examples.md) as templates.
 
 **Step 4: Add sub-components (if needed)**
 

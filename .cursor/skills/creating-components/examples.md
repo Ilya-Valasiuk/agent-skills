@@ -26,32 +26,11 @@ export const Logo: React.FC = () => (
 );
 ```
 
-### Component with logic (explicit return)
+### Page component
 
 ```tsx
-import { useState } from 'react';
-
-type Props = {
-  items: string[];
-  onSelect: (item: string) => void;
-};
-
-export const ItemList: React.FC<Props> = ({ items, onSelect }) => {
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const handleClick = (item: string) => {
-    setSelected(item);
-    onSelect(item);
-  };
-
-  return (
-    <ul>
-      {items.map((item) => (
-        <li key={item} onClick={() => handleClick(item)}>
-          {item} {selected === item && '(selected)'}
-        </li>
-      ))}
-    </ul>
-  );
-};
+// src/app/[locale]/about-us/page.tsx
+export const AboutUsPage: React.FC = () => (
+  <AboutUs />
+);
 ```
