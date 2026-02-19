@@ -36,21 +36,12 @@ See [folder-structures.md](folder-structures.md) for diagrams of each scenario.
 **Step 3: Create component file**
 
 Create a PascalCase `.tsx` file inside the folder.
-Follow the conventions in [reference.md](reference.md) and use [examples.md](examples.md) as templates.
+Follow the conventions in [reference.md](reference.md).
 
 **Step 4: Add sub-components (if needed)**
 
-If the component needs sub-components, create a `components/` folder inside:
-
-```
-[component-name]/
-├── [ComponentName].tsx
-└── components/
-    └── [sub-component-name]/
-        └── [SubComponentName].tsx
-```
-
-Each sub-component follows the same rules. Nesting can go 5-6 levels deep.
+If the component needs sub-components, create a `components/` folder inside it.
+Each sub-component follows the same rules. See [placement.md](placement.md) for the sub-component pattern.
 
 **Step 5: Validate against checklist**
 
@@ -87,11 +78,3 @@ After creating a component, verify every item:
 ### Files
 - [ ] Optional helper files (`types.ts`, `constants.ts`, `helpers.ts`, `index.ts`) created only if needed
 
----
-
-## Additional resources
-
-- For placement paths and conventions, see [placement.md](placement.md)
-- For folder structure diagrams, see [folder-structures.md](folder-structures.md)
-- For naming, export, and props conventions, see [reference.md](reference.md)
-- For code templates, see [examples.md](examples.md)
