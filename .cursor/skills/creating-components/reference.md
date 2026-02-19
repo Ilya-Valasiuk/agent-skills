@@ -67,37 +67,6 @@ type Props = {
 };
 ```
 
-## Directory placement
-
-### Common (shared) components
-
-```
-src/components/common/[component-name]/[ComponentName].tsx
-```
-
-Use for components reused across multiple pages (e.g., Header, Footer, Button).
-
-### Page-specific components
-
-```
-src/components/[page-name]/[PageName].tsx                  # main page component
-src/components/[page-name]/components/[component-name]/[ComponentName].tsx
-```
-
-### Sub-components
-
-Place inside a `components/` folder within the parent:
-
-```
-[parent-component-name]/
-├── [ParentComponent].tsx
-└── components/
-    └── [child-component-name]/
-        └── [ChildComponent].tsx
-```
-
-Nesting can go 5-6 levels deep following this same pattern at every level.
-
 ## Optional supporting files
 
 Create these only when needed:

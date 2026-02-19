@@ -20,16 +20,18 @@ Component Progress:
 
 **Step 1: Determine placement**
 
-Ask the user (or infer from context), then pick the target path:
+Infer from context if possible, otherwise ask the user. 
+See [placement.md](placement.md) for paths and conventions for each type:
 
-- **Page component?** → See [page-component.md](page-component.md)
-- **Shared/common component?** → `src/components/common/[component-name]/`
-- **Page-specific component?** → `src/components/[page-name]/components/[component-name]/`
-- **Sub-component of existing component?** → `[parent]/components/[component-name]/`
+- Shared (common) component
+- Page-specific component
+- Sub-component of existing component
+- Page component
 
 **Step 2: Create folder structure**
 
-Create a kebab-case folder in the appropriate location. For diagrams of each scenario, see [folder-structures.md](folder-structures.md).
+Create a kebab-case folder in the appropriate location. 
+See [folder-structures.md](folder-structures.md) for diagrams of each scenario.
 
 **Step 3: Create component file**
 
@@ -95,7 +97,7 @@ After creating a component, verify every item:
 
 ## Additional resources
 
-- For page component conventions, see [page-component.md](page-component.md)
+- For placement paths and conventions, see [placement.md](placement.md)
 - For folder structure diagrams, see [folder-structures.md](folder-structures.md)
 - For naming, export, and props conventions, see [reference.md](reference.md)
 - For code templates, see [examples.md](examples.md)

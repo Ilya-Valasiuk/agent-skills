@@ -1,4 +1,4 @@
-# Code Templates
+# React Component Templates
 
 ### Component with props
 
@@ -54,34 +54,4 @@ export const ItemList: React.FC<Props> = ({ items, onSelect }) => {
     </ul>
   );
 };
-```
-
-### Props with complex types
-
-```tsx
-type Props = {
-  user: {
-    id: string;
-    name: string;
-  };
-  isActive?: boolean;
-  className?: string;
-  onEdit: (id: string) => void;
-  onDelete?: (id: string) => void;
-};
-
-export const UserCard: React.FC<Props> = ({
-  user,
-  isActive,
-  className,
-  onEdit,
-  onDelete,
-}) => (
-  <div className={className}>
-    <h3>{user.name}</h3>
-    {isActive && <span>Active</span>}
-    <button onClick={() => onEdit(user.id)}>Edit</button>
-    {onDelete && <button onClick={() => onDelete(user.id)}>Delete</button>}
-  </div>
-);
 ```
