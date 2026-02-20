@@ -1,6 +1,6 @@
 ---
-name: creating-components
-description: Scaffolds React components following project conventions for naming, folder structure, exports, and props. Use when the user asks to create, add, scaffold, or generate a new React component.
+name: building-components
+description: Builds, restructures, and standardizes React components according to project conventions (placement, folder/file naming, exports, props patterns). Use when adding components or when reorganizing existing components during refactors, migrations, or component moves.
 ---
 
 # Creating Components
