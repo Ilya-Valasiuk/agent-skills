@@ -1,30 +1,31 @@
-# Cursor Configuration Repository
+# Agent Skills
 
-Shared Cursor configurations for Next.js App Router projects to standardize AI-assisted development workflows.
+A collection of reusable Agent Skills for Cursor to standardize and accelerate AI-assisted development workflows.
+
+## What are Agent Skills?
+
+Agent Skills are instructions that teach Cursor's AI agent how to perform specific, repeatable tasks according to your project conventions. When a skill is referenced, the agent reads its instructions and follows a defined workflow — ensuring consistent output every time.
+
+See the [Cursor Skills Documentation](https://cursor.com/docs/context/skills) for more details.
 
 ## Repository Structure
 
 ```
-cursor/
-├── rules/          # Always-on constraints and standards
-├── commands/       # Reusable team prompts (coming soon)
-├── skills/         # Optional specialized workflows (coming soon)
-├── hooks.json      # Lifecycle hooks configuration (coming soon)
-└── mcp.json        # MCP server configuration (coming soon)
-
-.cursorignore      # Exclusions from indexing (coming soon)
-instructions.md    # Project context (coming soon)
+skills/
+└── [skill-name]/
+    ├── SKILL.md          # Skill entry point with workflow and validation 
+    └── references/       # Supporting reference files linked from SKILL.md
+        └── *.md
 ```
 
-## Quick Links
+## Available Skills
 
-- [Cursor Rules Documentation](https://cursor.com/docs/context/rules)
-- [Cursor Commands Documentation](https://cursor.com/docs/context/commands)
-- [Cursor Skills Documentation](https://cursor.com/docs/context/skills)
+| Skill | Description |
+|---|---|
+| [building-components](skills/building-components/SKILL.md) | Builds, restructures, and standardizes React components according to project conventions (placement, folder/file naming, exports, props patterns). |
 
-## Contributing
 
-Add new rules, commands, or skills to the appropriate directory in `.cursor/`. Follow the official documentation for file format and structure requirements.
+```
 
 ## License
 
