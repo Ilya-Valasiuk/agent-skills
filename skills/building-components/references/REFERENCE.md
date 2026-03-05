@@ -67,6 +67,47 @@ type Props = {
 };
 ```
 
+## Enums for visual options
+
+When a component has discrete visual options — variants, sizes, states — define them as enums in `types.ts`. This keeps the component API explicit and type-safe.
+
+```ts
+// types.ts
+export enum ButtonVariant {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+}
+```
+
+In the component, compare against the enum value to apply conditional classes:
+
+```tsx
+// Button.tsx
+export const Button: React.FC<Props> = ({
+  variant = ButtonVariant.PRIMARY,
+  className,
+  ...props
+}) => (
+  <button
+    className={classNames(
+      'rounded-lg text-base',
+      variant === ButtonVariant.PRIMARY && 'bg-blue-500 text-white',
+      variant === ButtonVariant.SECONDARY && 'border border-blue-500 text-blue-500',
+      className,
+    )}
+    {...props}
+  />
+);
+```
+
+Export enums from `index.ts` alongside the component so consumers import both from one place:
+
+```ts
+// index.ts
+export { Button } from './Button';
+export { ButtonVariant } from './types';
+```
+
 ## Optional supporting files
 
 Create these only when needed:

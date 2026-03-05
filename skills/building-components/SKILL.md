@@ -16,6 +16,7 @@ Component Progress:
 - [ ] Step 3: Create component file
 - [ ] Step 4: Add sub-components (if needed)
 - [ ] Step 5: Validate against checklist
+- [ ] Step 6: Run lint fix and re-check
 ```
 
 **Step 1: Determine placement**
@@ -47,6 +48,10 @@ Each sub-component follows the same rules. See [references/placement.md](referen
 
 Run through the validation checklist below before considering the component complete.
 
+**Step 6: Run lint fix and re-check**
+
+Run linter with auto-fix scoped only to the created or modified files. If errors remain after auto-fix, notify the user that manual fixes are required and stop — do NOT suppress errors with `eslint-disable`, `@ts-ignore`, `@ts-expect-error`, or any other suppression directives.
+
 ---
 
 ## Validation checklist
@@ -75,4 +80,9 @@ After creating a component, verify every item:
 
 ### Files
 - [ ] Optional helper files (`types.ts`, `constants.ts`, `helpers.ts`, `index.ts`) created only if needed
+
+### Linting
+- [ ] Lint was run for changed component files
+- [ ] Lint auto-fix was run
+- [ ] No new lint errors remain in touched files
 
