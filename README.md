@@ -78,6 +78,8 @@ Static resources:
 | Skill | Description |
 |---|---|
 | [building-components](skills/building-components/SKILL.md) | Builds, restructures, and standardizes React components according to project conventions (placement, folder/file naming, exports, props patterns). |
+| [generating-typeorm-migration](skills/generating-typeorm-migration/SKILL.md) | Explains how to create and review TypeORM migrations. Use this skill whenever the user wants to change an entity, add or update schema-related database objects, generate a migration, or decide whether a database change should be handled through TypeORM metadata or a custom migration. |
+| [organizing-classnames](skills/organizing-classnames/SKILL.md) | Enforces classNames package usage patterns and Tailwind CSS class ordering conventions in React components. Use this skill whenever writing or reviewing component className props, applying Tailwind classes, using the classnames package, organizing breakpoint-specific styles, writing conditional class expressions, or when the user asks about CSS class ordering, mobile-first responsive patterns, or how to handle className props in components. |
 
 
 ## Resources & Documentation
