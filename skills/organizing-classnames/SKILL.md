@@ -117,6 +117,8 @@ export const Card: React.FC<Props> = ({
 
 ### Shared Styles (Extract Reused Class Sets)
 
+Extract class sets into a variable only when they are reused by multiple elements in the same component or when the repeated class list clearly hurts readability. Do not extract one-off class sets that are used only once.
+
 When multiple elements share the same base classes, extract to a variable:
 
 ```tsx
