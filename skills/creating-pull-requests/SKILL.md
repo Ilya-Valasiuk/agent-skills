@@ -110,13 +110,7 @@ If GitHub CLI is available, prefer `gh pr create`.
 
 If PR creation succeeds, use the success response template from [references/TEMPLATES.md](references/TEMPLATES.md).
 
-If automatic PR creation is blocked because of missing CLI, invalid auth, sandbox/network restrictions, or unavailable repo tooling, do not stop with an error. Use the fallback response template from [references/TEMPLATES.md](references/TEMPLATES.md) and provide a complete manual handoff.
-
-For GitHub compare links, use:
-
-```text
-https://github.com/<owner>/<repo>/compare/<base>...<head>?expand=1
-```
+If automatic PR creation is blocked because of missing CLI, invalid auth, sandbox/network restrictions, or unavailable repo tooling, do not stop with an error. Use the fallback response template from [references/TEMPLATES.md](references/TEMPLATES.md), and build the compare link using the GitHub format documented in [references/REFERENCE.md](references/REFERENCE.md).
 
 ## References
 

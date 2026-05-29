@@ -114,3 +114,11 @@ gh pr create --title "<title>" --body-file <temp-file>
 ```
 
 If that tooling is unavailable, fall back to the compare-link handoff.
+
+## GitHub compare link
+
+Use this format:
+
+```text
+https://github.com/<owner>/<repo>/compare/<base>...<head>?expand=1
+```
