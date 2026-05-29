@@ -108,15 +108,9 @@ After approval:
 
 If GitHub CLI is available, prefer `gh pr create`.
 
-If automatic PR creation is blocked because of missing CLI, invalid auth, sandbox/network restrictions, or unavailable repo tooling, provide the manual fallback handoff instead of stopping. Include:
+If PR creation succeeds, use the success response template from [references/TEMPLATES.md](references/TEMPLATES.md).
 
-- title
-- base branch
-- head branch
-- compare link
-- full PR body
-
-Use the success and fallback response templates from [references/TEMPLATES.md](references/TEMPLATES.md).
+If automatic PR creation is blocked because of missing CLI, invalid auth, sandbox/network restrictions, or unavailable repo tooling, do not stop with an error. Use the fallback response template from [references/TEMPLATES.md](references/TEMPLATES.md) and provide a complete manual handoff.
 
 For GitHub compare links, use:
 
