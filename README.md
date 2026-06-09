@@ -85,9 +85,16 @@ npx skills add https://github.com/ilya-valasiuk/agent-skills --skill <skill-name
 |---|---|---|
 | [building-components](skills/building-components/SKILL.md) | Builds, restructures, and standardizes React components according to project conventions (placement, folder/file naming, exports, props patterns). | `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill building-components` |
 | [creating-pull-requests](skills/creating-pull-requests/SKILL.md) | Prepare and open pull requests using the team's PR template, including a short PR title, diff-based classification into Features and Fixes, and an approval checkpoint before any push or PR creation. | `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill creating-pull-requests` |
-| [structuring-nextjs-app-router](skills/structuring-nextjs-app-router/SKILL.md) | Standardizes Next.js App Router project structure across `src/`, including route files, page composition, API modules, server actions, hooks, providers, helpers, and shared utilities. | `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill structuring-nextjs-app-router` |
 | [generating-typeorm-migration](skills/generating-typeorm-migration/SKILL.md) | Explains how to create and review TypeORM migrations. Use this skill whenever the user wants to change an entity, add or update schema-related database objects, generate a migration, or decide whether a database change should be handled through TypeORM metadata or a custom migration. | `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill generating-typeorm-migration` |
 | [organizing-classnames](skills/organizing-classnames/SKILL.md) | Enforces classNames package usage patterns and Tailwind CSS class ordering conventions in React components. Use this skill whenever writing or reviewing component className props, applying Tailwind classes, using the classnames package, organizing breakpoint-specific styles, writing conditional class expressions, or when the user asks about CSS class ordering, mobile-first responsive patterns, or how to handle className props in components. | `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill organizing-classnames` |
+
+## Experimental Skills
+
+These skills are experimental and are not recommended for production use.
+
+- [structuring-nextjs-app-router](skills/structuring-nextjs-app-router/SKILL.md)
+  Standardizes Next.js App Router project structure across `src/`, including route files, page composition, API modules, server actions, hooks, providers, helpers, and shared utilities.
+  Install: `npx skills add https://github.com/ilya-valasiuk/agent-skills --skill structuring-nextjs-app-router`
 
 
 ## Resources & Documentation
